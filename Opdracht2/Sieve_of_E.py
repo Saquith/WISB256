@@ -10,14 +10,17 @@ argumentList = sys.argv
 
 #debug code
 fileName = 'test.dat'
-upperLimit = 10000
+upperLimit = 10
 
 result = []
 T1 = time.perf_counter()
 
-#for i in range(1, upperLimit)
-    
+for i in range(1, upperLimit) :
+    result.append([i])
 
 T2 = time.perf_counter()
+file = open(fileName, 'w')
+for i in range(1, len(result)) :
+    print(i, sep='\n', file=file)
 
 print('Found %d Prime numbers smaller than %d in %d sec.' % (len(result), upperLimit, T2 - T1))
