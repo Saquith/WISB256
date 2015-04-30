@@ -33,3 +33,4 @@ for i in range(1, len(primes)) :
         print(i, sep='\n', file=file)
 
 print('Found %d Prime numbers smaller than %d in %d sec.' % (count, upperLimit, T2 - T1))
+print('--------------------------------------------')
