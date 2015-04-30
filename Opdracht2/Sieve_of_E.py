@@ -1,26 +1,35 @@
 import sys
 import time
+import math
 
 count = len(sys.argv) - 1
 argumentList = sys.argv
 
-#eventual running code
-#fileName = argumentList.pop(count)
-#upperLimit = int(argumentList.pop(count - 1))
+fileName = argumentList.pop(count)
+upperLimit = int(argumentList.pop(count - 1))
 
-#debug code
-fileName = 'test.dat'
-upperLimit = 10
+#Create the full numbers list
+primes = [True] * upperLimit
 
-result = []
 T1 = time.perf_counter()
 
-for i in range(1, upperLimit) :
-    result.append([i])
+for i in range(2, int(math.sqrt(upperLimit))) :
+    for j in range(i, upperLimit) :
+        # i squared, as j starts as i.
+        if i * j >= len(primes) :
+            break
+        primes[i * j] = False
 
 T2 = time.perf_counter()
-file = open(fileName, 'w')
-for i in range(1, len(result)) :
-    print(i, sep='\n', file=file)
 
-print('Found %d Prime numbers smaller than %d in %d sec.' % (len(result), upperLimit, T2 - T1))
+#1 is not prime
+primes[1] = False
+
+file = open(fileName, 'w')
+count = 0
+for i in range(1, len(primes)) :
+    if primes[i] :
+        count = count + 1
+        print(i, sep='\n', file=file)
+
+print('Found %d Prime numbers smaller than %d in %d sec.' % (count, upperLimit, T2 - T1))
