@@ -1,10 +1,9 @@
 import sys
 import math
 
-count = len(sys.argv) - 1
 argumentList = sys.argv
 
-fileName = argumentList.pop(count)
+fileName = argumentList.pop()
 
 file = open(fileName, 'r')
 const = 0.6601618

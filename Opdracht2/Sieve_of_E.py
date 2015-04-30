@@ -2,11 +2,10 @@ import sys
 import time
 import math
 
-count = len(sys.argv) - 1
 argumentList = sys.argv
 
-fileName = argumentList.pop(count)
-upperLimit = int(argumentList.pop(count - 1))
+fileName = argumentList.pop()
+upperLimit = int(argumentList.pop())
 
 #Create the full numbers list
 primes = [True] * upperLimit
@@ -32,5 +31,5 @@ for i in range(1, len(primes)) :
         count = count + 1
         print(i, sep='\n', file=file)
 
-print('Found %d Prime numbers smaller than %d in %d sec.' % (count, upperLimit, T2 - T1))
+print('Found %d Prime numbers smaller than %d in %s sec.' % (count, upperLimit, T2 - T1))
 print('--------------------------------------------')
