@@ -1,24 +1,44 @@
 import sys
+import math
 import random
 
 count = len(sys.argv) - 1
 argumentList = sys.argv
 
 #functions
-#def run() :
+def drop_needle(L) : #aslongasitsnotsoap
+    x = random.random()
+    y = random.random()
+    a = random.vonmisesvariate(0,0)
+    x2 = x + L * math.cos(a)
+    y2 = y + L * math.sin(a)
+
+    #improve on this, shit's not right yet.
+    if (int(x) != int(x2) or int(y) != int(y)) :
+        return True
+    return False
 
 #body
 if (count < 2) :
     sys.exit('Use: python estimate_pi.py N L')
-    
-L = int(argumentList.pop(count))
-N = int(argumentList.pop(count - 1))
+
+#check if a seed was given
+if (count == 3) :
+    random.seed(int(argumentList.pop()))
+
+L = int(argumentList.pop())
+N = int(argumentList.pop())
 
 if (L > 1) :
     sys.exit('AssertionError: L should be smaller than 1')
-    
 
-# uniform in [0,1]
-x = random.random()
-# uniform in [0,2\pi]
-a = random.vonmisesvariate(0,0)
+count = 0
+#from 0 to N, so we get N repeats
+for i in range(0, N) :
+    if(drop_needle(L)) :
+        count += 1
+
+approxPi = (N * 2) / count
+
+print('%d hits in %d tries' % (count, N))
+print('Pi = %s' % approxPi)
