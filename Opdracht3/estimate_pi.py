@@ -13,8 +13,10 @@ def drop_needle(L) : #aslongasitsnotsoap
     x2 = x + L * math.cos(a)
     y2 = y + L * math.sin(a)
 
-    #improve on this, shit's not right yet.
-    if (int(x) != int(x2) or int(y) != int(y)) :
+    #check if it crosses the line
+    if (x < 0 and x2 >= 0) or (x >= 0 and x2 < 0) :
+        return True
+    if (y < 0 and y2 >= 0) or (y >= 0 and y2 < 0) :
         return True
     return False
 
