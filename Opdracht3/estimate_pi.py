@@ -16,7 +16,7 @@ def drop_needle(L) : #aslongasitsnotsoap
     #check if it crosses the line
     if (x < 0 and x2 >= 0) or (x >= 0 and x2 < 0) :
         return True
-    if (y < 0 and y2 >= 0) or (y >= 0 and y2 < 0) :
+    if (x < 1 and x2 >= 1) or (x >= 1 and x2 < 1) :
         return True
     return False
 
@@ -40,7 +40,7 @@ for i in range(0, N) :
     if(drop_needle(L)) :
         count += 1
 
-approxPi = (N * 2) / count
+approxPi = ((2 * L) * N) / count
 
 print('%d hits in %d tries' % (count, N))
 print('Pi = %s' % approxPi)
