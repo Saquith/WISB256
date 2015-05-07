@@ -31,16 +31,16 @@ if (count == 3) :
 L = float(argumentList.pop())
 N = int(argumentList.pop())
 
-if (L > 1) :
-    sys.exit('AssertionError: L should be smaller than 1')
-
 count = 0
 #from 0 to N, so we get N repeats
 for i in range(0, N) :
     if(drop_needle(L)) :
         count += 1
-
-approxPi = ((2 * L) * N) / count
+approxPi = -1
+if L > 1 :
+    approxPi = 2*L / (count/N - 1) - (2/(count/N - 1) * (math.sqrt(L**2 - 1) + math.asin(1/L)))
+else :
+    approxPi = 2*L * N / count
 
 print('%d hits in %d tries' % (count, N))
 print('Pi = %s' % approxPi)
