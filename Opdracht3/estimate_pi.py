@@ -14,9 +14,7 @@ def drop_needle(L) : #aslongasitsnotsoap
     y2 = y + L * math.sin(a)
 
     #check if it crosses the line
-    if (x < 0 and x2 >= 0) or (x >= 0 and x2 < 0) :
-        return True
-    if (x < 1 and x2 >= 1) or (x >= 1 and x2 < 1) :
+    if (x >= 0 and x2 < 0) or (x < 1 and x2 >= 1) :
         return True
     return False
 
