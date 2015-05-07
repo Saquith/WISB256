@@ -28,7 +28,7 @@ if (count < 2) :
 if (count == 3) :
     random.seed(int(argumentList.pop()))
 
-L = int(argumentList.pop())
+L = float(argumentList.pop())
 N = int(argumentList.pop())
 
 if (L > 1) :
