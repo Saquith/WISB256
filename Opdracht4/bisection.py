@@ -18,6 +18,8 @@ def findRoot(f,a,b,epsilon) :
         return findRoot(f,m,b,epsilon)
 
 def findAllRoots(f,a,b,epsilon) :
+    #if f(a) * f(b) >= 0 :
+        #raise(AssertionError('f(a) * f(b) >= 0'))
     m = (a + b) / 2
 
     # Stopping criterion
@@ -30,6 +32,8 @@ def findAllRoots(f,a,b,epsilon) :
         l.append(a)
     if f(b) == 0 :
         l.append(b)
+    if f(m) == 0 :
+        l.append(m)
         
     # Build the lists recursively
     if (f(a) < 0 and f(m) > 0) or (f(a) > 0 and f(m) < 0) :
