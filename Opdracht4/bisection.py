@@ -2,7 +2,7 @@ def findRoot(f,a,b,epsilon) :
     m = (a + b) / 2
     
     # Stopping criterion
-    if abs(b - a) <= epsilon :
+    if abs(b - a) <= epsilon or f(m) == 0 :
         return m
 
     # Check if this is already a root

@@ -14,7 +14,7 @@ print('findAllRoots testing:')
 print(divider)
 
 print(bisection.findAllRoots(lambda x:x**2-2,-2,2,.1))
-print(bisection.findAllRoots(lambda x:math.sin(x),0,9,.1))
+print(bisection.findAllRoots(lambda x:math.sin(x),0.1,9,.1))
 
 print(divider)
 
